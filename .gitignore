@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+app/aiVi/page.js
+app/job/page.js
+app/job0/page.js
+app/jobai/page.js
+app/vi/page.js
