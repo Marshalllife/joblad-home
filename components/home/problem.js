@@ -73,7 +73,7 @@ const ProblemSection = () => {
   ];
 
   return (
-    <section id="problem" className="py-20 bg-gray-50">
+    <section id="problem" className="py-12 md:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -124,7 +124,7 @@ const ProblemSection = () => {
               <motion.div
                 key={`problem-${index}`}
                 variants={itemVariants}
-                className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
+                className="bg-white rounded-xl p-3.5 md:p-6 shadow-sm border border-gray-100"
               >
                 <div className="flex items-start">
                   <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mr-4 flex-shrink-0">
@@ -140,7 +140,7 @@ const ProblemSection = () => {
 
             <motion.div
               variants={itemVariants}
-              className="bg-gradient-to-r from-purple-primary/10 to-blue-primary/10 rounded-xl p-6"
+              className="bg-gradient-to-r from-purple-primary/10 to-blue-primary/10 rounded-xl p-4 md:p-6"
             >
               <p className="text-gray-700 font-medium">
                 The result? Talented individuals remain underemployed, earning a
@@ -166,7 +166,7 @@ const ProblemSection = () => {
               </motion.h3>
             </div>
 
-            <div className="p-6 space-y-6">
+            <div className="p-4 md:p-6 space-y-6 ">
               <motion.p variants={itemVariants} className="text-gray-700">
                 We've built a platform specifically designed to bridge this gap,
                 with features that address each barrier:
@@ -245,7 +245,7 @@ const ProblemSection = () => {
           </motion.div>
         </motion.div>
       </div>
-      <div className=" mt-5">
+      <div className="mt-5 px-3.5">
         {" "}
         <AnimatedBadge variant="floating" />{" "}
         {/* or "scrolling", "floating", "rotating", "typewriter" */}

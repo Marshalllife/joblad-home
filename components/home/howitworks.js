@@ -104,14 +104,14 @@ const HowItWorks = () => {
     <section
       id="how"
       ref={sectionRef}
-      className="py-20 bg-white overflow-hidden"
+      className="py-12 md:py-20 bg-white overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
           <h2 className="text-base text-purple-primary font-semibold tracking-wide uppercase mb-2">
             Process
@@ -119,7 +119,7 @@ const HowItWorks = () => {
           <h3 className="text-4xl md:text-5xl font-bold mb-4 font-display">
             How Joblad Works
           </h3>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             A simple, secure process for connecting skills with opportunities
           </p>
         </motion.div>
@@ -157,7 +157,7 @@ const HowItWorks = () => {
 
         {/* Mobile View - Vertical Steps */}
         <div className="md:hidden">
-          <div className="space-y-6">
+          <div className="space-y-9 md:space-y-6">
             {activeSteps.map((step, index) => (
               <motion.div
                 key={`mobile-${index}`}
@@ -244,7 +244,7 @@ const HowItWorks = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-16 text-center"
+          className="mt-10 mb-3 md:mt-16 text-center"
         >
           <p className="text-gray-600 mb-6">
             Ready to{" "}

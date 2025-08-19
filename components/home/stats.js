@@ -117,7 +117,7 @@ const StatsMetrics = () => {
     <section 
       id="metrics"
       ref={sectionRef}
-      className="py-16 bg-off-white"
+      className="py-8 md:py-16 bg-off-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -284,7 +284,7 @@ const StatsMetrics = () => {
         </div> */}
         
         {/* "See More" Button */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -297,7 +297,7 @@ const StatsMetrics = () => {
             <span>View detailed platform reports</span>
             <ArrowRight className="w-4 h-4 ml-1" />
           </a>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

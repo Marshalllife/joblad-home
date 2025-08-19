@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../button/button";
+import Image from "next/image";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -85,7 +86,7 @@ const Navbar = () => {
         ${
           scrolled
             ? "bg-white/40 backdrop-blur-xl shadow-md py-4.5"
-            : "bg-transparent py-3.5"
+            : "bg-transparent backdrop-blur py-3.5"
         }`}
       aria-label="Main navigation"
       initial={{ y: -100 }}
@@ -108,7 +109,7 @@ const Navbar = () => {
                 setActiveSection("/");
               }}
             >
-              <div className="w-10 h-10 bg-purple-primary rounded-2xl flex items-center justify-center">
+              {/* <div className="w-10 h-10 bg-purple-primary rounded-2xl flex items-center justify-center">
                 <svg
                   width="20"
                   height="20"
@@ -124,10 +125,24 @@ const Navbar = () => {
                     strokeLinecap="round"
                   />
                 </svg>
-              </div>
-              <span className="ml-3 text-xl font-bold font-display text-gray-900">
-                Joblad
-              </span>
+              </div> */}
+              <motion.div
+                className="flex items-center space-x-0"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Image
+                  src={"/image/logo2.png"}
+                  alt="Image logo for nav"
+                  width={0}
+                  height={0}
+                  sizes="(max-width: 768px) 50px, 55px"
+                  className="w-[50px] md:w-[55px] h-auto object-contain p-1.5 rounded-2xl "
+                />
+                <span className="ml-0.5 mt-1 text-md md:text-xl font-bold font-display text-gray-900">
+                  Joblad
+                </span>
+              </motion.div>
             </Link>
           </motion.div>
 
@@ -155,7 +170,7 @@ const Navbar = () => {
               Download App
             </motion.a> */}
 
-            <Button soon='true 'variant="gradient" size="md">
+            <Button soon="true " variant="gradient" size="md">
               Download App
             </Button>
           </div>
@@ -253,13 +268,16 @@ const Navbar = () => {
               </div>
 
               <div className="p-8">
-                <motion.button
+                {/* <motion.button
                   className="w-full bg-gradient-secondary hover:bg-gradient-to-r from-blue-primary to-purple-primary text-white py-4 rounded-xl text-lg font-semibold transition-colors duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   Download App
-                </motion.button>
+                </motion.button> */}
+                <Button soon variant="gradient" fullWidth size="lg">
+                  Download App
+                </Button>
               </div>
             </div>
 

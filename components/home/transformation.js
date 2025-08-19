@@ -596,7 +596,7 @@ const SkillsTransformationShowcase = () => {
     <section
       id="skills"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-r from-gray-50 to-white overflow-hidden"
+      className=" py-12 md:py-24 bg-gradient-to-r from-gray-50 to-white overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -611,7 +611,7 @@ const SkillsTransformationShowcase = () => {
           <h3 className="text-4xl md:text-5xl font-bold mb-4 font-display">
             From Local to Digitalization
           </h3>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             See how traditional skills transform through digital platforms into
             broader opportunities.
           </p>
@@ -665,7 +665,7 @@ const SkillsTransformationShowcase = () => {
                     <TrendingUp className="w-3 h-3 mr-1" />+{skill.increase}
                   </div>
 
-                  <div className="p-8">
+                  <div className="p-6 md:p-8">
                     <div className="flex items-center justify-between mb-6">
                       <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl bg-gray-100 group-hover:scale-110 transition-transform duration-500">
                         {skill.emoji}
@@ -732,7 +732,8 @@ const SkillsTransformationShowcase = () => {
 
                     <div className="absolute bottom-4 right-4">
                       <div className="flex items-center text-purple-primary text-sm font-medium opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                        Learn more - <span className="text-[10px]">Soon</span> <ChevronRight className="ml-1 w-4 h-4" />
+                        Learn more - <span className="text-[10px]">Soon</span>{" "}
+                        <ChevronRight className="ml-1 w-4 h-4" />
                       </div>
                     </div>
                   </div>
@@ -844,7 +845,7 @@ const SkillsTransformationShowcase = () => {
                     <p className="text-gray-600 text-sm">{skill.description}</p>
 
                     {/* Learn More Text */}
-                    <div className="absolute -bottom-3 right-4 flex items-center text-sm text-purple-primary font-medium">
+                    <div className=" hidden md:flex absolute -bottom-3 right-4 flex items-center text-sm text-purple-primary font-medium">
                       Hover to explore <ChevronRight className="w-4 h-4 ml-1" />
                     </div>
 

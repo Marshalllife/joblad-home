@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Button from "../button/button";
+import Image from "next/image";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -119,29 +120,25 @@ const Footer = () => {
         </div> */}
 
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-10">
-          {/* Company Info */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center mb-6">
-              <div className="w-10 h-10 bg-purple-primary rounded-2xl flex items-center justify-center">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 2L7 7V12L12 17L17 12V7L12 2Z" fill="white" />
-                  <path
-                    d="M12 17V22"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
-              <span className="ml-3 text-xl font-bold">Joblad</span>
-            </div>
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-10">
+          <div className="col-span-2 ">
+            <motion.div
+              className="flex items-center space-x-0"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Image
+                src={"/image/logo2.png"}
+                alt="Image logo for nav"
+                width={0}
+                height={0}
+                sizes="(max-width: 768px) 50px, 55px"
+                className="w-[50px] md:w-[55px] h-auto object-contain p-1.5 rounded-2xl "
+              />
+              <span className="ml-0.5 mt-1 text-md md:text-xl font-bold font-display text-light">
+                Joblad
+              </span>
+            </motion.div>
 
             <p className="text-gray-400 mb-6">
               Digitalizing local skills, empowering global dreams. The platform
@@ -248,14 +245,18 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Download App</h4>
             <div className="space-y-3">
               <button className="bg-white/10 border border-white/20 rounded-xl px-4 py-3 flex items-center space-x-3 hover:bg-white/20 transition-colors w-full">
-                <div className="w-6 h-6 bg-white/20 rounded text-blue-light">G</div>
+                <div className="w-6 h-6 bg-white/20 rounded text-blue-light">
+                  G
+                </div>
                 <div className="text-left">
                   <p className="text-xs">Download on</p>
                   <p className="font-semibold">Google Play</p>
                 </div>
               </button>
               <button className="bg-white/10 border border-white/20 rounded-xl px-4 py-3 flex items-center space-x-3 hover:bg-white/20 transition-colors w-full">
-                <div className="w-6 h-6 bg-white/20 rounded text-blue-light">A</div>
+                <div className="w-6 h-6 bg-white/20 rounded text-blue-light">
+                  A
+                </div>
                 <div className="text-left">
                   <p className="text-xs">Download on</p>
                   <p className="font-semibold">App Store</p>

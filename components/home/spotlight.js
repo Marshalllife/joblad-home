@@ -59,7 +59,11 @@ const Spotlight = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50" id="features" ref={sectionRef}>
+    <section
+      className="py-12 md:py-20 bg-gray-50"
+      id="features"
+      ref={sectionRef}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -213,7 +217,7 @@ const Spotlight = () => {
                       className="h-full"
                     >
                       <motion.div
-                        className={`h-64 bg-gradient-to-r ${feature.color} flex items-center justify-center p-8 relative overflow-hidden`}
+                        className={`h-64 bg-gradient-to-r ${feature.color} flex items-center justify-center  p-5 md:p-8 relative overflow-hidden`}
                         initial={{ backgroundPosition: "0% 0%" }}
                         animate={{ backgroundPosition: "100% 0%" }}
                         transition={{
@@ -263,7 +267,7 @@ const Spotlight = () => {
                         </div>
                       </motion.div>
 
-                      <div className="p-8">
+                      <div className="p-4.5 md:p-8">
                         {feature.id === "discover" && (
                           <div>
                             <motion.h4
@@ -440,9 +444,9 @@ const Spotlight = () => {
                                   and ratings.
                                 </p>
                                 <div className="bg-gray-50 rounded-xl p-4">
-                                  <div className="flex items-center mb-2">
+                                  <div className="flex flex-col md:flex-row  items-center mb-2">
                                     <motion.div
-                                      className="flex items-center mr-2"
+                                      className="flex  items-center mr-2"
                                       initial={{ opacity: 0 }}
                                       animate={{ opacity: 1 }}
                                       transition={{ duration: 0.4, delay: 0.3 }}
@@ -461,11 +465,11 @@ const Spotlight = () => {
                                         </motion.div>
                                       ))}
                                     </motion.div>
-                                    <span className="text-sm font-semibold">
+                                    <span className="pt-1 text-xs md:text-sm font-semibold">
                                       4.9 average rating
                                     </span>
                                   </div>
-                                  <p className="text-xs text-gray-500">
+                                  <p className="text-sm text-gray-500">
                                     Based on verified client reviews
                                   </p>
                                 </div>
@@ -606,13 +610,13 @@ const Spotlight = () => {
                                       )
                                     )}
                                   </div>
-                                  <div className="flex justify-between text-xs text-gray-500 mt-2">
-                                    <span>Mon</span>
-                                    <span>Tue</span>
-                                    <span>Wed</span>
-                                    <span>Thu</span>
-                                    <span>Fri</span>
-                                    <span>Sat</span>
+                                  <div className="flex justify-between text-xs gap-0.5 text-gray-500 mt-2">
+                                    <span>Mon</span>|
+                                    <span>Tue</span> |
+                                    <span>Wed</span>|
+                                    <span>Thu</span>|
+                                    <span>Fri</span>|
+                                    <span>Sat</span>|
                                     <span>Sun</span>
                                   </div>
                                 </div>

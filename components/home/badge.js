@@ -55,7 +55,7 @@ const AnimatedBadge = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
-          className="relative z-10 mx-auto max-w-4xl mb-12"
+          className="relative z-10 mx-auto max-w-4xl mb-6 md:mb-12  text-sm md:text-md"
         >
           {renderBadge()}
         </motion.div>

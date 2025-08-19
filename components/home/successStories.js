@@ -34,8 +34,7 @@ const SuccessStories = () => {
       name: "Mama Sidi",
       location: "Lagos, Nigeria",
       skill: "Fashion Designer",
-      image:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=60",
+      image: "/successStory/mamaSidi.png",
       before: {
         work: "Local tailor doing alterations",
         income: "₦65,000/month",
@@ -55,8 +54,7 @@ const SuccessStories = () => {
       name: "Emeka Okafor",
       location: "Enugu, Nigeria",
       skill: "Electrician & Smart Home Expert",
-      image:
-        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&auto=format&fit=crop&q=60",
+      image: "/successStory/okafor.png",
       before: {
         work: "Local electrical repairs",
         income: "₦85,000/month",
@@ -76,8 +74,7 @@ const SuccessStories = () => {
       name: "Fatima Ahmed",
       location: "Kano, Nigeria",
       skill: "Culinary Expert",
-      image:
-        "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&auto=format&fit=crop&q=60",
+      image: "/successStory/fatima.png",
       before: {
         work: "Local food vendor",
         income: "₦45,000/month",
@@ -108,14 +105,14 @@ const SuccessStories = () => {
     <section
       id="stories"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden"
+      className="py-10 md:py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
           <h2 className="text-base text-purple-primary font-semibold tracking-wide uppercase mb-2">
             Success Stories
@@ -124,7 +121,7 @@ const SuccessStories = () => {
             Real People.
             <span className="text-purple-primary"> Real Results.</span>
           </h3>
-          <p className="text-xl whitespace-nowrap text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl md:whitespace-nowrap text-gray-600 max-w-2xl mx-auto">
             Meet the people who digitized their local skills to reach broader
             opportunities.
           </p>

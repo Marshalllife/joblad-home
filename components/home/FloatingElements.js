@@ -431,7 +431,7 @@ const Notification = ({ notification, onClose }) => {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 100 }}
       transition={{ duration: 0.3 }}
-      className={`rounded-lg shadow-md p-4 ${getBgColor()} border flex items-center pointer-events-auto`}
+      className={`rounded-lg shadow-md p-2 md:p-4 ${getBgColor()} border flex items-center pointer-events-auto`}
     >
       <div className="mr-3">{getIcon()}</div>
       <div className="flex-1">

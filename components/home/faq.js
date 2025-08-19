@@ -217,7 +217,7 @@ const FAQSection = () => {
     <section
       id="faq"
       ref={sectionRef}
-      className="py-24 bg-gray-50 overflow-hidden"
+      className="py-10 md:py-24 bg-gray-50 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -404,6 +404,7 @@ const FAQSection = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
+              soon
               variant="primary"
               size="base"
               leftIcon={<MessageCircle className="w-5 h-5" />}
@@ -412,6 +413,7 @@ const FAQSection = () => {
             </Button>
 
             <Button
+              soon
               variant="outline"
               size="base"
               leftIcon={<ExternalLink className="w-5 h-5" />}

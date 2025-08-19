@@ -146,14 +146,14 @@ const PlatformFeatures = () => {
     <section
       id="features"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden"
+      className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <Sparkles className="w-12 h-12 text-purple-primary mx-auto mb-4" />
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display">
@@ -209,7 +209,7 @@ const PlatformFeatures = () => {
           </div>
 
           <div className="relative overflow-hidden rounded-3xl shadow-lg">
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 pt-12 px-8 pb-0">
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 pt-12 px-5  md:px-8 pb-0">
               {/* Feature Navigation Dots */}
               <div className="flex justify-center space-x-2 mb-8">
                 {appFeatures.map((_, index) => (

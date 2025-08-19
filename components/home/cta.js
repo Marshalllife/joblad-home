@@ -465,7 +465,7 @@ const CTAWaitlist = () => {
                       <div className="grid grid-cols-2">
                         <button
                           onClick={() => setUserType("local")}
-                          className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                          className={` px-2.5 md:px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                             userType === "local"
                               ? "bg-white text-purple-primary"
                               : "text-white hover:bg-white/10"
@@ -475,7 +475,7 @@ const CTAWaitlist = () => {
                         </button>
                         <button
                           onClick={() => setUserType("global")}
-                          className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                          className={`px-2.5 md:px-4  py-3 rounded-xl text-sm font-medium transition-colors ${
                             userType === "global"
                               ? "bg-white text-blue-primary"
                               : "text-white hover:bg-white/10"
@@ -486,7 +486,7 @@ const CTAWaitlist = () => {
                       </div>
                     </div>
                     {error && (
-                      <p className="text-red-500 text-sm mt-2">{error}</p>
+                      <p className="bg-error/90 text-red-50 text-center rounded-md py-1 text-sm mt-2">{error}</p>
                     )}
                   </div>
 
