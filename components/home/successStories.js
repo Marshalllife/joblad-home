@@ -1,9 +1,8 @@
 "use client";
 
-
 const missionTextBadge = [
   " Join thousands of skilled individuals who have transformed their careers and incomes through Joblad.",
-  "Join the lads",
+  "Join the Lads",
 ];
 
 import React, { useState, useRef } from "react";
@@ -21,11 +20,13 @@ import {
 import Button from "../button/button";
 import Image from "next/image";
 import AnimatedBadge from "./badge";
+import CurrencyDisplay from "../public/currencyDisplay";
 
 const SuccessStories = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const [activeStory, setActiveStory] = useState(0);
+  const [isEarningsVisible, setIsEarningsVisible] = useState(false);
 
   // Success stories data
   const stories = [
@@ -41,7 +42,7 @@ const SuccessStories = () => {
         reach: "Local neighborhood only",
       },
       after: {
-        work: "Fashion designer for global clients",
+        work: "Digital fashion designer serving global clients",
         income: "₦450,000/month",
         reach: "Clients in UK, US, and Canada",
       },
@@ -85,7 +86,7 @@ const SuccessStories = () => {
       after: {
         work: "Nigerian cuisine instructor",
         income: "₦380,000/month",
-        reach: "Students from 12 countries",
+        reach: "Online Nigerian cuisine instructor",
       },
       quote:
         "I now teach people around the world how to cook traditional Nigerian dishes through video calls. My specialty jollof rice classes are always booked weeks in advance!",
@@ -123,9 +124,9 @@ const SuccessStories = () => {
             Real People.
             <span className="text-purple-primary"> Real Results.</span>
           </h3>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Meet the people who transformed their local skills into global
-            careers.
+          <p className="text-xl whitespace-nowrap text-gray-600 max-w-2xl mx-auto">
+            Meet the people who digitized their local skills to reach broader
+            opportunities.
           </p>
         </motion.div>
 
@@ -211,6 +212,7 @@ const SuccessStories = () => {
 
                     <div className="px-4 pb-4">
                       <Button
+                        soon
                         variant="outline"
                         size="sm"
                         fullWidth
@@ -241,7 +243,11 @@ const SuccessStories = () => {
         </div>
 
         {/* Desktop View - Featured Story */}
-        <div className="hidden md:block">
+        <div
+          className="hidden md:block"
+          onMouseEnter={() => setIsEarningsVisible(true)}
+          onMouseLeave={() => setIsEarningsVisible(false)}
+        >
           <div className="relative">
             {stories.map((story, index) => (
               <motion.div
@@ -307,7 +313,13 @@ const SuccessStories = () => {
                         <h4 className="font-bold text-lg mb-4">
                           The Transformation
                         </h4>
-
+                        <div className="bg-gray-100 rounded-full h-3 overflow-hidden my-1.5">
+                          <div
+                            className={`h-full bg-gradient-to-r from-purple-primary to-blue-primary transition-all duration-1000 ease-out ${
+                              isEarningsVisible ? "w-full" : "w-0"
+                            }`}
+                          ></div>
+                        </div>
                         <div className="grid grid-cols-2 gap-8 mb-4">
                           <div>
                             <p className="text-sm text-gray-500 uppercase mb-2">
@@ -324,14 +336,25 @@ const SuccessStories = () => {
                                   </p>
                                 </div>
                               </div>
+
                               <div className="flex items-start">
                                 <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
                                   <DollarSign className="w-4 h-4 text-gray-500" />
                                 </div>
                                 <div>
-                                  <p className="font-medium">
-                                    {story.before.income}
-                                  </p>
+                                  <div className="font-medium">
+                                    {/* {story.before.income} */}
+                                    <CurrencyDisplay
+                                      baseAmount={parseFloat(
+                                        story.before.income.replace(
+                                          /[^\d.]/g,
+                                          ""
+                                        )
+                                      )}
+                                      size="sm"
+                                      rotationSpeed={6000}
+                                    />
+                                  </div>
                                 </div>
                               </div>
                               <div className="flex items-start">
@@ -367,9 +390,19 @@ const SuccessStories = () => {
                                   <DollarSign className="w-4 h-4 text-white" />
                                 </div>
                                 <div>
-                                  <p className="font-medium text-purple-primary">
-                                    {story.after.income}
-                                  </p>
+                                  <div className="font-medium text-purple-primary">
+                                    {/* {story.after.income} */}
+                                    <CurrencyDisplay
+                                      baseAmount={parseFloat(
+                                        story.after.income.replace(
+                                          /[^\d.]/g,
+                                          ""
+                                        )
+                                      )}
+                                      size="sm"
+                                      rotationSpeed={6000}
+                                    />
+                                  </div>
                                 </div>
                               </div>
                               <div className="flex items-start">
@@ -388,6 +421,7 @@ const SuccessStories = () => {
                       </div>
 
                       <Button
+                        soon
                         variant="primary"
                         size="base"
                         leftIcon={<ExternalLink className="w-4 h-4" />}
@@ -450,7 +484,10 @@ const SuccessStories = () => {
 
         <div className=" mt-10">
           {" "}
-          <AnimatedBadge  missionText={missionTextBadge} variant="scrolling" />{" "}
+          <AnimatedBadge
+            missionText={missionTextBadge}
+            variant="scrolling"
+          />{" "}
           {/* or "scrolling", "floating", "rotating", "typewriter" */}
         </div>
       </div>
@@ -459,4 +496,3 @@ const SuccessStories = () => {
 };
 
 export default SuccessStories;
-

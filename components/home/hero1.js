@@ -235,6 +235,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../button/button";
 import Image from "next/image";
+import CurrencyDisplay from "../public/currencyDisplay";
 
 const Hero1 = () => {
   const [activeCount, setActiveCount] = useState(2847);
@@ -251,6 +252,7 @@ const Hero1 = () => {
     "recognition.",
     "fair income.",
     "worldwide reach.",
+    "digital presence",
   ];
 
   // Live counter effect
@@ -292,9 +294,9 @@ const Hero1 = () => {
       id="home"
       className="relative min-h-screen flex items-center pt-20 overflow-hidden"
     >
-      <div className="absolute inset-0 opacity-[0.02]">
+      <div className="relatve inset-0 opacity-[0.7] -z-10">
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 -z-10"
           style={{
             backgroundImage:
               "radial-gradient(circle at 2px 2px, #7040ea 1px, transparent 1px)",
@@ -323,7 +325,7 @@ const Hero1 = () => {
               {tasksToday} tasks completed today
             </span>
           </div> */}
-          <div className="inline-flex items-center bg-[#9fe1ff]/10 border border-[#3f9de6]/20 rounded-full px-4 py-2 mb-0">
+          <div className="inline-flex items-center bg-[#9fe1ff]/10 border border-[#3f9de6]/20 rounded-full px-4 py-2 mb-3 md:mb-0.5">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2"></span>
             <span className="text-sm text-gray-700">
               5,000+ people already in waiting list
@@ -346,17 +348,17 @@ const Hero1 = () => {
               >
                 Your skills deserve
               </motion.h1>
-              <div className="h-[72px] md:h-[80px] relative">
+              <div className="h-[45px] md:h-[80px] relative">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={headlineIndex}
-                    className="text-5xl md:text-6xl font-bold font-display text-purple-primary absolute left-0"
+                    className="text-4xl md:text-6xl font-bold font-display text-purple-primary absolute left-0"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{
                       duration: 0.5,
-                      ease: [0.22, 1, 0.36, 1], 
+                      ease: [0.22, 1, 0.36, 1],
                     }}
                   >
                     {headlines[headlineIndex]}
@@ -369,11 +371,12 @@ const Hero1 = () => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="text-lg text-gray-600 mb-8 font-normal font-accent leading-relaxed mt-4"
+              className="text-md md:text-lg text-gray-600 mb-8 font-normal font-accent leading-relaxed mt-4"
             >
-              The first platform turning Africa's local expertise into global
-              income streams. From traditional crafts to modern tech—everyone
-              has value.
+              The first platform digitizing Africa's local skills for the
+              digital economy, From traditional crafts to modern opportunities
+              across emerging markets.
+              <span> Everyone has value.</span>
             </motion.p>
 
             {/* Countdown Timer */}
@@ -421,7 +424,7 @@ const Hero1 = () => {
               className="flex flex-col sm:flex-row gap-4 mb-8"
             >
               <Button
-                href="/"
+                soon
                 variant="gradient"
                 size="lg"
                 rightIcon={
@@ -436,7 +439,7 @@ const Hero1 = () => {
                 size="lg"
                 leftIcon={<Play className="w-5 h-5" />}
               >
-                Watch Demo
+                Watch Intro
               </Button>
             </motion.div>
 
@@ -448,11 +451,11 @@ const Hero1 = () => {
             >
               <div className="flex items-center text-gray-600">
                 <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                Start free
+                Start Free
               </div>
               <div className="flex items-center text-gray-600">
                 <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                Instant Payments
+                Lad Trust Score
               </div>
               <div className="flex items-center text-gray-600">
                 <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
@@ -497,8 +500,8 @@ const Hero1 = () => {
                       <h3 className="text-lg font-bold">Hi, Chioma 👋</h3>
                       <div className="w-10 h-10 rounded-full overflow-hidden">
                         <Image
-                        width={100}
-                        height={100}
+                          width={100}
+                          height={100}
                           src="https://picsum.photos/1200/800"
                           alt="Profile"
                           className="w-full h-full object-cover"
@@ -513,7 +516,8 @@ const Hero1 = () => {
                       transition={{ duration: 0.2 }}
                     >
                       <p className="text-sm opacity-90 mb-1">This Week</p>
-                      <p className="text-3xl font-bold mb-3">₦127,500</p>
+                      <p className="text-3xl font-bold mb-3">₦127,500</p> 
+                      {/* <CurrencyDisplay baseAmount={127500} size="xl" /> */}
                       <div className="flex items-center justify-between">
                         <span className="text-sm opacity-90">
                           14 tasks completed
@@ -543,7 +547,9 @@ const Hero1 = () => {
                             <h5 className="font-semibold text-sm mt-1">
                               Design Logo for Restaurant
                             </h5>
-                                    <p className="text-xs text-gray-500">Client: Sarah (UK)</p>
+                            <p className="text-xs text-gray-500">
+                              Client: Sarah (UK)
+                            </p>
                           </div>
                           <span className="text-purple-primary font-bold">
                             ₦65,000
@@ -581,7 +587,9 @@ const Hero1 = () => {
                             <h5 className="font-semibold text-sm mt-1">
                               Teach Yoruba (5 sessions)
                             </h5>
-                            <p className="text-xs text-gray-500">Client: David (USA)</p>
+                            <p className="text-xs text-gray-500">
+                              Client: David (USA)
+                            </p>
                           </div>
                           <span className="text-blue-primary font-bold">
                             $150
@@ -614,7 +622,10 @@ const Hero1 = () => {
                   </div>
                   <div>
                     <p className="text-xs font-semibold">Payment Received</p>
-                    <p className="text-xs text-gray-500">₦45,000</p>
+                    <div className="text-xs text-gray-500 mt-1.5">
+                      {" "}
+                      <CurrencyDisplay baseAmount={45000} size="sm" />
+                    </div>
                   </div>
                 </div>
               </motion.div>

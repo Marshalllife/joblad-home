@@ -16,7 +16,7 @@ const StatsMetrics = () => {
   const platformStats = [
     {
       icon: <DollarSign className="w-6 h-6" />,
-      label: "Total Earnings Paid",
+      label: "Targeted Earnings To Be Paid",
       value: "₦2.5B+",
       suffix: "",
       color: "text-purple-primary",
@@ -24,7 +24,7 @@ const StatsMetrics = () => {
     },
     {
       icon: <Users className="w-6 h-6" />,
-      label: "Active Users",
+      label: "Target Active Users In 6 months",
       value: "20K+",
       suffix: "",
       color: "text-blue-primary",
@@ -32,7 +32,7 @@ const StatsMetrics = () => {
     },
     {
       icon: <Briefcase className="w-6 h-6" />,
-      label: "Projects Completed",
+      label: "Target Projects Completion",
       value: "104",
       suffix: "K",
       color: "text-green-600",
@@ -40,7 +40,7 @@ const StatsMetrics = () => {
     },
     {
       icon: <Globe className="w-6 h-6" />,
-      label: "Countries Reached",
+      label: "Target Countries To Reach",
       value: "32",
       suffix: "",
       color: "text-amber-500",
@@ -117,7 +117,7 @@ const StatsMetrics = () => {
     <section 
       id="metrics"
       ref={sectionRef}
-      className="py-24 bg-white"
+      className="py-16 bg-off-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -127,12 +127,19 @@ const StatsMetrics = () => {
           className="text-center mb-16"
         >
           <BarChart2 className="w-12 h-12 text-purple-primary mx-auto mb-4" />
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display">
+          {/* <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display">
             Platform <span className="text-purple-primary">Metrics</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Real numbers that showcase our impact and growth in connecting skills with opportunities.
-          </p>
+          </p> */}
+
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display">
+  How We'll <span className="text-purple-primary">Measure Success</span>
+</h2>
+<p className="text-xl text-gray-600 max-w-3xl mx-auto">
+  After launch, these are the key metrics we'll track to ensure we're fulfilling our mission.
+</p>
         </motion.div>
         
         {/* Key Platform Statistics */}
@@ -237,7 +244,7 @@ const StatsMetrics = () => {
         </div>
         
         {/* Time-Based Performance Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {timeMetrics.map((metric, index) => (
             <motion.div
               key={`time-${index}`}
@@ -274,7 +281,7 @@ const StatsMetrics = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </div> */}
         
         {/* "See More" Button */}
         <motion.div

@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { Shield, Lock, BadgeCheck, CreditCard, UserCheck, AlertTriangle, Eye, FileCheck, CheckCircle } from "lucide-react";
 import Button from "../button/button";
 import Image from "next/image";
+import CurrencyDisplay from "../public/currencyDisplay";
 
 const TrustAndSafety = () => {
   const sectionRef = useRef(null);
@@ -89,8 +90,8 @@ const TrustAndSafety = () => {
             Trust & Safety
             <span className="text-purple-primary"> Guaranteed</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Your security is our priority. We've built robust systems to ensure safe transactions and protect your data.
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Your security is our priority. We've built robust systems to ensure safe transactions between local providers and seekers everywhere.
           </p>
         </motion.div>
         
@@ -151,6 +152,7 @@ const TrustAndSafety = () => {
             
             <div className="mt-8">
               <Button
+              soon
                 variant="secondary"
                 size="base"
                 leftIcon={<Eye className="w-5 h-5" />}
@@ -199,7 +201,7 @@ const TrustAndSafety = () => {
                   <div className="bg-blue-50 rounded-xl p-4 mb-4">
                     <div className="flex justify-between items-center mb-2">
                       <p className="text-sm font-medium">Project Value</p>
-                      <p className="font-bold">₦85,000</p>
+                    <CurrencyDisplay baseAmount={85000} />
                     </div>
                     <div className="flex justify-between items-center">
                       <p className="text-sm font-medium">Release Date</p>

@@ -20,7 +20,7 @@ const Main = () => {
     <>
     <Layout>
       <Navbar />
-      <HeroMain />
+      <HeroMain /> 
       <ProblemSection />
       <SkillsTransformationShowcase />
       <HowItWorks />
