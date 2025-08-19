@@ -2,7 +2,7 @@ import "./globals.css";
 import { inter, axiforma, poppins } from "./fonts";
 
 export const metadata = {
-  title: "Joblad — Local Skills, Global Reach",
+  title: "Joblad — Digitalizing Local Skills for Global Reach",
   Description:
     "Digitalize your everyday skills and connect to global opportunities. From local expertise to worldwide income.",
   metadataBase: new URL("https://joblad.com"),
@@ -25,7 +25,7 @@ export const metadata = {
 
   // Open Graph
   openGraph: {
-    title: "Joblad — Local Skills, Global Reach",
+    title: "Joblad — Digitalizing Local Skills for Global Reach",
     Description:
       "Digitalize your everyday skills and connect to global opportunities. From local expertise to worldwide income.",
     url: "https://joblad.com",
@@ -45,7 +45,7 @@ export const metadata = {
   // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "Joblad — Local Skills, Global Reach",
+    title: "Joblad — Digitalizing Local Skills for Global Reach",
     Description:
       "Digitalize your everyday skills and connect to global opportunities. From local expertise to worldwide income.",
     images: ["/og.jpg"],
@@ -56,9 +56,17 @@ export const metadata = {
   icons: {
     icon: [
       { url: "/favicon/favicon.ico" },
-      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      {
+        url: "/favicon/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/favicon/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
     ],
     apple: [
       {
@@ -70,6 +78,17 @@ export const metadata = {
   },
 
   manifest: "/favicon/site.webmanifest",
+  other: {
+    "application-name": "Joblad",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "apple-mobile-web-app-title": "Joblad",
+    "format-detection": "telephone=no",
+    "mobile-web-app-capable": "yes",
+    "msapplication-TileColor": "#7040ea",
+    "msapplication-tap-highlight": "no",
+    "theme-color": "#7040ea",
+  },
 };
 
 export default function RootLayout({ children }) {
