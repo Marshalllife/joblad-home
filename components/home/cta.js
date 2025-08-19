@@ -290,8 +290,8 @@ const CTAWaitlist = () => {
   // Benefits of joining early
   const earlyBenefits = [
     "Premium features free for life",
+    "Free digital portfolio creation and training",
     "Priority verification and onboarding",
-    "0% commission on your first 10 projects",
     "Exclusive access to premium clients",
   ];
 
@@ -411,10 +411,10 @@ const CTAWaitlist = () => {
 
                 <div className="bg-white/30 rounded-xl p-4 mb-6">
                   <div className="flex items-center justify-between mb-2">
-                    <p className="text-sm font-medium text-gray-700">
+                    <p className="text-sm font-medium text-gray-200">
                       Waitlist Capacity
                     </p>
-                    <p className="text-sm font-medium text-gray-700">
+                    <p className="text-sm font-medium text-gray-200">
                       {waitlistStats.spotsLeft}/{waitlistStats.totalSpots} spots
                       left
                     </p>
@@ -540,9 +540,10 @@ const CTAWaitlist = () => {
                 sure to check your email for a confirmation message.
               </p>
               <Button
+              soon
                 variant="outline"
                 size="base"
-                className="text-dark"
+                className="text-light/90"
                 rightIcon={<ChevronRight className="w-4 h-4 " />}
               >
                 Refer a Friend for Priority Access

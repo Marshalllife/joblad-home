@@ -5,12 +5,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Globe, ArrowRight } from "lucide-react";
 
 const missionTextBadge = [
-  "Bridging Local Skills to Global Markets",
+  "Bringing Local Skills to the Digital Economy",
   "Joblad was born from a simple observation:",
-  "incredible talent exists everywhere, but opportunity doesn't.",
+  "incredible talent exists everywhere, but digital opportunity doesn't..",
 ];
 
-const AnimatedBadge = ({ variant = "ribbon", missionText = missionTextBadge }) => {
+const AnimatedBadge = ({
+  variant = "ribbon",
+  missionText = missionTextBadge,
+}) => {
   const [isVisible, setIsVisible] = useState(true);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
