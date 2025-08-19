@@ -2,74 +2,235 @@
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, ArrowUp, Bell, X, Check, PhoneCall, Info, DollarSign, Users, Gift } from "lucide-react";
-
+import {
+  MessageCircle,
+  ArrowUp,
+  Bell,
+  X,
+  Check,
+  PhoneCall,
+  Info,
+  DollarSign,
+  Users,
+  Gift,
+} from "lucide-react";
 
 const FloatingElements = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [notificationIndex, setNotificationIndex] = useState(0);
-  
+
+  // const mockNotifications = [
+  //   {
+  //     type: "success",
+  //     message: "Someone from lagos joined the wait list!",
+  //     duration: 5000,
+  //   },
+  //      {
+  //     type: "success",
+  //     message: "Someone just joined from Lagos!",
+  //     duration: 5000,
+  //   },
+  //      {
+  //     type: "success",
+  //     message: "Someone just joined from Lagos!",
+  //     duration: 5000,
+  //   },
+  //   {
+  //     type: "info",
+  //     message: "15 new jobs posted in the last hour",
+  //     duration: 6000,
+  //   },
+  //   {
+  //     type: "call",
+  //     message: "Need help? Talk to a specialist",
+  //     duration: 7000,
+  //     action: {
+  //       label: "Call Now",
+  //       onClick: () => window.open("tel:+2348012345678"),
+  //     },
+  //   },
+  //   {
+  //     type: "success",
+  //     message: "Profile verified successfully!",
+  //     duration: 5000,
+  //   },
+  //   {
+  //     type: "info",
+  //     message: "New message from client",
+  //     duration: 5000,
+  //     action: {
+  //       label: "View Messages",
+  //       onClick: () => window.location.href = "#messages",
+  //     },
+  //   },
+  //   {
+  //     type: "success",
+  //     message: "₦45,000 payment received",
+  //     icon: <DollarSign className="w-5 h-5 text-green-500" />,
+  //     duration: 6000,
+  //   },
+  //   {
+  //     type: "info",
+  //     message: "Your project is trending! 24 new views",
+  //     icon: <Users className="w-5 h-5 text-blue-500" />,
+  //     duration: 7000,
+  //   },
+  //   {
+  //     type: "success",
+  //     message: "Earned 5 new Joblad points!",
+  //     icon: <Gift className="w-5 h-5 text-purple-primary" />,
+  //     duration: 5000,
+  //     action: {
+  //       label: "View Rewards",
+  //       onClick: () => window.location.href = "#rewards",
+  //     },
+  //   }
+  // ];
+
+  // Throttled scroll handler
 
   const mockNotifications = [
+    // Waitlist signups with geographic diversity
     {
       type: "success",
-      message: "Someone just joined from Lagos!",
+      message: "Someone from Lagos just joined the waitlist!",
+      duration: 5000,
+    },
+    {
+      type: "success",
+      message: "New waitlist signup from Accra, Ghana!",
+      duration: 5000,
+    },
+    {
+      type: "success",
+      message: "A tailor from Nairobi joined the waitlist!",
+      duration: 5000,
+    },
+    {
+      type: "success",
+      message: "Someone from Kano just reserved their spot!",
+      duration: 5000,
+    },
+    {
+      type: "success",
+      message: "New waitlist signup from Johannesburg!",
+      duration: 5000,
+    },
+    {
+      type: "success",
+      message: "A developer from Abuja joined the waitlist!",
+      duration: 5000,
+    },
+    {
+      type: "success",
+      message: "Someone from Enugu just secured early access!",
+      duration: 5000,
+    },
+    {
+      type: "success",
+      message: "A carpenter from Port Harcourt joined!",
+      duration: 5000,
+    },
+    {
+      type: "success",
+      message: "New member from London wants to digitize their skills!",
+      duration: 5000,
+    },
+
+    // Social media follows with actionable links
+    {
+      type: "info",
+      message: "15 new people followed us on X today!",
+      duration: 6000,
+      action: {
+        label: "Follow Us",
+        onClick: () => window.open("https://x.com/joblad", "_blank"),
+      },
+    },
+    {
+      type: "info",
+      message: "Our Instagram community just reached 500 followers!",
+      duration: 6000,
+      action: {
+        label: "Join Community",
+        onClick: () => window.open("https://instagram.com/joblad", "_blank"),
+      },
+    },
+    {
+      type: "info",
+      message: "New LinkedIn post about digitizing traditional skills",
+      duration: 6000,
+      action: {
+        label: "View Post",
+        onClick: () =>
+          window.open("https://linkedin.com/company/joblad", "_blank"),
+      },
+    },
+
+    // Community engagement
+    {
+      type: "info",
+      message: "50 people joined our Telegram community today!",
+      duration: 6000,
+      action: {
+        label: "Join Chat",
+        onClick: () => window.open("https://t.me/joblad", "_blank"),
+      },
+    },
+    {
+      type: "info",
+      message: "New discussion in our community about skill digitization",
+      duration: 6000,
+      action: {
+        label: "Join Discussion",
+        onClick: () => window.open("https://t.me/joblad", "_blank"),
+      },
+    },
+
+    // Countdown and progress notifications
+    {
+      type: "info",
+      message: "Only 127 early access spots remaining!",
+      duration: 7000,
+    },
+    {
+      type: "success",
+      message: "85% of early access spots already claimed!",
       duration: 5000,
     },
     {
       type: "info",
-      message: "15 new jobs posted in the last hour",
+      message: "Launch countdown: 14 days to go!",
       duration: 6000,
     },
+
+    // Contact and engagement
     {
       type: "call",
-      message: "Need help? Talk to a specialist",
-      duration: 7000,
-      action: {
-        label: "Call Now",
-        onClick: () => window.open("tel:+2348012345678"),
-      },
-    },
-    {
-      type: "success",
-      message: "Profile verified successfully!",
+      message: "Someone just reached out via WhatsApp!",
       duration: 5000,
     },
     {
       type: "info",
-      message: "New message from client",
-      duration: 5000,
-      action: {
-        label: "View Messages",
-        onClick: () => window.location.href = "#messages",
-      },
-    },
-    {
-      type: "success",
-      message: "₦45,000 payment received",
-      icon: <DollarSign className="w-5 h-5 text-green-500" />,
+      message: "10 new skill digitization questions in our community",
       duration: 6000,
-    },
-    {
-      type: "info",
-      message: "Your project is trending! 24 new views",
-      icon: <Users className="w-5 h-5 text-blue-500" />,
-      duration: 7000,
+      action: {
+        label: "Join Discussion",
+        onClick: () => window.open("https://t.me/joblad", "_blank"),
+      },
     },
     {
       type: "success",
-      message: "Earned 5 new Joblad points!",
-      icon: <Gift className="w-5 h-5 text-purple-primary" />,
+      message: "200+ people signed up for the early-access webinar!",
       duration: 5000,
       action: {
-        label: "View Rewards",
-        onClick: () => window.location.href = "#rewards",
+        label: "Register Now",
+        onClick: () => (window.location.href = "#waitlist"),
       },
-    }
+    },
   ];
-  
-  // Throttled scroll handler
+
   const handleScroll = useCallback(() => {
     const shouldShow = window.scrollY > 500;
     if (showBackToTop !== shouldShow) {
@@ -94,31 +255,58 @@ const FloatingElements = () => {
     return () => window.removeEventListener("scroll", throttledScroll);
   }, [handleScroll]);
 
-  // Show notifications 
+  // Show notifications
+  // useEffect(() => {
+  //   showNextNotification();
+  //   const interval = setInterval(() => {
+  //     showNextNotification();
+  //   }, 1000);
+
+  //   return () => clearInterval(interval);
+  // }, []);
+  // Show notifications
+
   useEffect(() => {
-    showNextNotification();
-    const interval = setInterval(() => {
-      showNextNotification();
-    }, 20000); 
-    
+    let currentIndex = 0;
+    const showNotification = () => {
+      const index = currentIndex % mockNotifications.length;
+
+      const notification = {
+        id: Date.now(),
+        ...mockNotifications[index],
+      };
+
+      setNotifications((prev) => [...prev, notification]);
+
+      if (notification.duration) {
+        setTimeout(() => {
+          removeNotification(notification.id);
+        }, notification.duration);
+      }
+      currentIndex++;
+    };
+
+    showNotification();
+    const interval = setInterval(showNotification, 15000);
+
     return () => clearInterval(interval);
   }, []);
-  
+
   // Function to show the next notification
   const showNextNotification = () => {
     if (notificationIndex >= mockNotifications.length) {
       setNotificationIndex(0);
       return;
     }
-    
+
     const notification = {
       id: Date.now(),
-      ...mockNotifications[notificationIndex]
+      ...mockNotifications[notificationIndex],
     };
-    
-    setNotifications(prev => [...prev, notification]);
-    setNotificationIndex(prev => prev + 1);
-    
+
+    setNotifications((prev) => [...prev, notification]);
+    setNotificationIndex((prev) => prev + 1);
+
     if (notification.duration) {
       setTimeout(() => {
         removeNotification(notification.id);
@@ -128,7 +316,9 @@ const FloatingElements = () => {
 
   // Function to remove a notification
   const removeNotification = (id) => {
-    setNotifications(prev => prev.filter(notification => notification.id !== id));
+    setNotifications((prev) =>
+      prev.filter((notification) => notification.id !== id)
+    );
   };
 
   // Scroll to top function
@@ -140,7 +330,8 @@ const FloatingElements = () => {
   };
 
   // WhatsApp link
-  const whatsappLink = "https://wa.me/2348132456789?text=Hello%20Joblad%2C%20I%27m%20interested%20in%20learning%20more%20about%20your%20platform.";
+  const whatsappLink =
+    "https://wa.me/23400000000?text=Hello%20Joblad%2C%20I%27m%20interested%20in%20learning%20more%20about%20your%20platform.";
 
   return (
     <>
@@ -180,7 +371,7 @@ const FloatingElements = () => {
       </AnimatePresence>
 
       {/* Notifications Area */}
-      <div 
+      <div
         className="fixed top-24 right-6 z-50 flex flex-col space-y-4 max-w-sm pointer-events-none"
         aria-live="polite"
       >
@@ -207,7 +398,7 @@ const Notification = ({ notification, onClose }) => {
   // Get icon based on type or use custom icon
   const getIcon = () => {
     if (icon) return icon;
-    
+
     switch (type) {
       case "success":
         return <Check className="w-5 h-5 text-green-500" />;
@@ -244,7 +435,7 @@ const Notification = ({ notification, onClose }) => {
     >
       <div className="mr-3">{getIcon()}</div>
       <div className="flex-1">
-        <p className="text-gray-800 text-sm">{message}</p>
+        <p className="text-gray-800 text-xs md:text-sm">{message}</p>
         {action && (
           <button
             onClick={action.onClick}

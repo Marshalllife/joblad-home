@@ -32,7 +32,7 @@ const Footer = () => {
     name: "Joblad by MyDappr",
     address: "Ikeja, Lagos, Nigeria",
     email: "hello@joblad.com",
-    phone: "+234 801 234 5678",
+    phone: "+234 000 000 0000",
   };
 
   // Quick links
@@ -48,21 +48,12 @@ const Footer = () => {
 
   // Product links
   const productLinks = [
-    { name: "Local Lad", href: "#" },
-    { name: "Micro Lad", href: "#" },
-    { name: "Macro Lad", href: "#" },
-    { name: "Business Lad", href: "#" },
+    { name: "Local Lad", href: "http://localhost:3000/#how" },
+    { name: "Micro Lad", href: "http://localhost:3000/#how" },
+    { name: "Macro Lad", href: "http://localhost:3000/#how" },
+    { name: "Business Lad", href: "http://localhost:3000/#how" },
     { name: "Earnings Calculator", href: "#calculator" },
-    { name: "Mobile App", href: "#" },
-  ];
-
-  // Legal links
-  const legalLinks = [
-    { name: "Terms of Service", href: "#" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Cookie Policy", href: "#" },
-    { name: "Acceptable Use Policy", href: "#" },
-    { name: "Refund Policy", href: "#" },
+    { name: "Mobile App -soon", href: "#" },
   ];
 
   // Social media links
@@ -154,7 +145,7 @@ const Footer = () => {
 
             <p className="text-gray-400 mb-6">
               Digitalizing local skills, empowering global dreams. The platform
-              that connects African talent with global opportunities.
+              that transforms local talent into digital services.
             </p>
 
             <div className="space-y-3">
@@ -165,6 +156,7 @@ const Footer = () => {
               <div className="flex items-start">
                 <Mail className="w-5 h-5 text-gray-500 mr-3 flex-shrink-0 mt-0.5" />
                 <a
+                  target="_black"
                   href={`mailto:${companyInfo.email}`}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
@@ -174,6 +166,7 @@ const Footer = () => {
               <div className="flex items-start">
                 <Phone className="w-5 h-5 text-gray-500 mr-3 flex-shrink-0 mt-0.5" />
                 <a
+                  target="_black"
                   href={`tel:${companyInfo.phone}`}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
@@ -186,6 +179,7 @@ const Footer = () => {
             <div className="flex space-x-4 mt-6">
               {socialLinks.map((social, index) => (
                 <a
+                  target="_black"
                   key={`social-${index}`}
                   href={social.href}
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-purple-primary hover:text-white transition-colors"
@@ -254,14 +248,14 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Download App</h4>
             <div className="space-y-3">
               <button className="bg-white/10 border border-white/20 rounded-xl px-4 py-3 flex items-center space-x-3 hover:bg-white/20 transition-colors w-full">
-                <div className="w-6 h-6 bg-white/20 rounded"></div>
+                <div className="w-6 h-6 bg-white/20 rounded text-blue-light">G</div>
                 <div className="text-left">
                   <p className="text-xs">Download on</p>
                   <p className="font-semibold">Google Play</p>
                 </div>
               </button>
               <button className="bg-white/10 border border-white/20 rounded-xl px-4 py-3 flex items-center space-x-3 hover:bg-white/20 transition-colors w-full">
-                <div className="w-6 h-6 bg-white/20 rounded"></div>
+                <div className="w-6 h-6 bg-white/20 rounded text-blue-light">A</div>
                 <div className="text-left">
                   <p className="text-xs">Download on</p>
                   <p className="font-semibold">App Store</p>
@@ -315,7 +309,7 @@ const Footer = () => {
             reserved.
           </p>
           <div className="flex space-x-4 mt-4 sm:mt-0">
-            <Link
+            {/* <Link
               href="#"
               className="text-gray-500 hover:text-gray-400 text-sm"
             >
@@ -326,28 +320,32 @@ const Footer = () => {
               className="text-gray-500 hover:text-gray-400 text-sm"
             >
               Accessibility
-            </Link>
+            </Link> */}
             <Link
-              href="#"
+              target="_black"
+              href="https://mydappr.io/#contact"
               className="text-gray-500 hover:text-gray-400 text-sm"
             >
               Contact Us
             </Link>
 
             <a
-              href="#"
+              target="_black"
+              href="https://mydappr.io/company/terms"
               className="text-gray-400 hover:text-white transition-colors text-sm"
             >
               Terms
             </a>
             <a
-              href="#"
+              target="_black"
+              href="https://mydappr.io/company/privacy"
               className="text-gray-400 hover:text-white transition-colors text-sm"
             >
               Privacy
             </a>
             <a
-              href="#"
+              target="_black"
+              href="https://mydappr.io/company/cookies"
               className="text-gray-400 hover:text-white transition-colors text-sm"
             >
               Cookies

@@ -33,7 +33,7 @@ const HowItWorks = () => {
       icon: <Globe className="w-6 h-6 text-white" />,
       title: "Get Discovered",
       description:
-        "Our platform connects you with clients from around the world looking for your skills.",
+        "Our platform digitizes your skills, making you discoverable to clients locally and beyond.",
       color: "bg-blue-primary",
     },
     {
@@ -254,6 +254,7 @@ const HowItWorks = () => {
             ?
           </p>
           <Button
+          soon
             variant={activeTab === "providers" ? "primary" : "secondary"}
             size="base"
             rightIcon={<ChevronRight className="w-4 h-4" />}

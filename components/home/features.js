@@ -17,6 +17,7 @@ import {
   Award,
   Check,
   Briefcase,
+  SmartphoneIcon,
 } from "lucide-react";
 import Button from "../button/button";
 import Image from "next/image";
@@ -31,16 +32,23 @@ const PlatformFeatures = () => {
   const coreFeatures = [
     {
       icon: <Globe className="w-6 h-6 text-white" />,
-      title: "Global Reach, Local Focus",
+      title: "Local to Global Reach",
       description:
-        "Connect with opportunities worldwide while our platform remains optimized for African contexts and realities.",
+        "Start with local opportunities and expand to regional and worldwide markets as your digital presence grows.",
       color: "bg-purple-primary",
+    },
+    {
+      icon: <SmartphoneIcon className="w-6 h-6 text-white" />,
+      title: "Digital Transformation",
+      description:
+        "Transform your traditional skills into digital services with professional profiles and portfolios.",
+      color: "bg-cyan-500",
     },
     {
       icon: <Languages className="w-6 h-6 text-white" />,
       title: "Multiple Languages",
       description:
-        "Use Joblad in English, Yoruba, Igbo, or Hausa to navigate comfortably in your preferred language.",
+        "Use Joblad in English, Swahili, Yoruba, Igbo, Hausa, Zulu, Amharic and more to navigate comfortably in your preferred language.",
       color: "bg-blue-primary",
     },
     {
@@ -64,22 +72,22 @@ const PlatformFeatures = () => {
         "Showcase your certified skills with our trust badge system that builds credibility.",
       color: "bg-green-600",
     },
-    {
-      icon: <Users className="w-6 h-6 text-white" />,
-      title: "Community Support",
-      description:
-        "Join skill-specific communities for mentorship, collaboration, and growth opportunities.",
-      color: "bg-amber-500",
-    },
   ];
 
   // App features carousel data
   const appFeatures = [
     {
+      title: "Digital Portfolio",
+      description:
+        "Create a professional digital presence showcasing your skills, experience, and previous work.",
+      image: "/images/app-portfolio.png",
+      color: "from-purple-primary to-blue-primary",
+    },
+    {
       title: "Smart Matching",
       description:
         "Our AI connects you with the perfect skill provider or client based on your needs and preferences.",
-      image: "/images/app-smart-matching.png", // These would be actual screenshots in production
+      image: "/images/app-smart-matching.png",
       color: "from-purple-primary to-blue-primary",
     },
     {
@@ -107,21 +115,22 @@ const PlatformFeatures = () => {
 
   // Tab-specific features
   const providerFeatures = [
-    "Create a profile in under 5 minutes",
+    "Create your digital portfolio in under 5 minutes",
     "Set your own rates and availability",
-    "Get discovered by global clients",
+    "Get discovered by global service seekers",
     "Receive secure payments in multiple currencies",
     "Build your portfolio with verified reviews",
-    "Access free skill-building resources",
+    "Access free digital skills training and business growth resources",
   ];
 
   const seekerFeatures = [
+    "Support local skill digitization in your community",
     "Find verified skilled professionals quickly",
     "Compare rates and reviews in one place",
     "Pay securely with buyer protection",
     "Track project progress in real-time",
     "Communicate seamlessly with providers",
-    "Access quality talent across Africa",
+    "Access quality talented providers near you",
   ];
 
   // Interval for feature carousel
@@ -148,12 +157,12 @@ const PlatformFeatures = () => {
         >
           <Sparkles className="w-12 h-12 text-purple-primary mx-auto mb-4" />
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display">
-        Built for Africa, 
+            Built for Africa,
             <span className="text-purple-primary"> works globally</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Designed specifically to address the unique challenges and
-            opportunities of the African market, designed with local realities in mind.
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Designed specifically to address the unique challenges and digital
+            opportunities of the African market with local realities in mind.
           </p>
         </motion.div>
 
@@ -366,6 +375,7 @@ const PlatformFeatures = () => {
 
                     <div className="mt-8">
                       <Button
+                        soon
                         variant="primary"
                         size="base"
                         rightIcon={<ArrowRight className="w-4 h-4" />}
@@ -405,6 +415,7 @@ const PlatformFeatures = () => {
 
                     <div className="mt-8">
                       <Button
+                        soon
                         variant="secondary"
                         size="base"
                         rightIcon={<ArrowRight className="w-4 h-4" />}
