@@ -50,6 +50,7 @@ const CurrencyDisplay = ({
     xl: "text-xl font-bold",
     "2xl": "text-2xl font-bold",
     "3xl": "text-3xl font-bold",
+    norm:'text-sm md:text-lg'
   };
 
   const displayCurrencies = primaryDisplay
@@ -129,7 +130,7 @@ const CurrencyDisplay = ({
   );
 
   return (
-    <div className={`inline-flex items-center ${className}`}>
+    <div className={`inline-flex items-center  ${className}`}>
       <AnimatePresence mode="wait">
         <motion.span
           key={displayedCurrency}
@@ -141,7 +142,7 @@ const CurrencyDisplay = ({
         >
           {formatCurrency(convertedAmount, displayedCurrency)}
           <motion.span
-            className="absolute -top-2 -right-2 text-[0.6em] text-gray-500 font-normal"
+            className="absolute -top-2 -right-2 text-[0.5em] text-gray-500 font-normal"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.2 }}

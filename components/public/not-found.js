@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Home, ArrowLeft, Compass } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function NotFound() {
   return (
@@ -16,26 +17,23 @@ export default function NotFound() {
 
       <div className="relative z-10 max-w-md w-full text-center">
         {/* Logo */}
-        <div className="flex items-center justify-center mb-8">
-          <div className="w-12 h-12 bg-purple-primary rounded-2xl flex items-center justify-center">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 2L7 7V12L12 17L17 12V7L12 2Z" fill="white" />
-              <path
-                d="M12 17V22"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
-          <span className="ml-3 text-2xl font-bold">Joblad</span>
-        </div>
+        <motion.div
+          className="flex items-center space-x-0"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Image
+            src={"/image/logo2.png"}
+            alt="Image logo for nav"
+            width={0}
+            height={0}
+            sizes="(max-width: 768px) 50px, 55px"
+            className="w-[50px] md:w-[55px] h-auto object-contain p-1.5 rounded-2xl "
+          />
+          <span className="ml-0.5 mt-1 text-md md:text-xl font-bold font-display text-gray-900">
+            Joblad
+          </span>
+        </motion.div>
 
         {/* Main Content */}
         <motion.div
