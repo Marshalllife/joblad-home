@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Lock, Globe, CreditCard, CheckCircle } from "lucide-react";
+import { Lock, Globe, CreditCard, CheckCircle, Store } from "lucide-react";
 import Button from "../button/button";
 import AnimatedBadge from "./badge";
 
@@ -27,41 +27,47 @@ const ProblemSection = () => {
   const problems = [
     {
       icon: <Globe className="w-6 h-6 text-gray-600" />,
-      title: "Limited by location",
+      title: "Digital Invisibility",
       description:
-        "Traditional platforms require bank accounts most don't have",
+        "Skilled providers remain invisible beyond their local areas with no digital presence or discovery system",
     },
     {
-      icon: <CreditCard className="w-6 h-6 text-gray-600" />,
-      title: "Payment challenges",
-      description: "Complex interfaces built for Western markets",
+      icon: <Store className="w-6 h-6 text-gray-600" />,
+      title: "Marketplace Gap",
+      description:
+        "No dedicated platforms connecting local skills with the digital economy despite high demand for these services",
     },
     {
       icon: <Lock className="w-6 h-6 text-gray-600" />,
-      title: "Trust barriers",
-      description: "Payment delays that kill small businesses",
+      title: "Technology Barriers",
+      description:
+        "Traditional skilled workers lack accessible tools to digitize, promote and monetize their expertise",
     },
   ];
 
   const solutions = [
     {
-      title: "Global Access",
-      description: "Connect with clients from over 30 countries",
+      title: "Digital Presence Platform",
+      description:
+        "Showcase your skills with a professional digital profile accessible to anyone",
       check: true,
     },
     {
-      title: "Multiple Payment Options",
-      description: "Get paid in local currency, dollars, or crypto",
+      title: "Mobile-First Technology",
+      description:
+        "Optimized for local markets with features that work on any device, even with limited data. Built for Africans - works globally",
       check: true,
     },
     {
-      title: "Built for Africans - works globally",
-      description: "Simple interface that works on any device",
+      title: "Secure Payment System",
+      description:
+        "Get paid reliably in local currency, dollars, or crypto with escrow protection",
       check: true,
     },
     {
-      title: "Secure Escrow",
-      description: "Money held safely until work is completed",
+      title: "Market Expansion Tools",
+      description:
+        "Connect with opportunities locally and in over 30 countries worldwide",
       check: true,
     },
   ];
@@ -89,10 +95,12 @@ const ProblemSection = () => {
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto"
           >
             Millions of skilled Africans—carpenters, teachers, developers,
-            artists—remain disconnected from the $450B global gig economy.
+            artists—remain disconnected from the $450B global gig economy
+            because they lack digital platforms to showcase their expertise
+            locally and beyond.
           </motion.p>
         </motion.div>
 
@@ -188,7 +196,7 @@ const ProblemSection = () => {
                 variants={itemVariants}
                 className="pt-4 mt-4 border-t border-gray-100"
               >
-                <Button variant="gradient" size="base" fullWidth>
+                <Button variant="gradient" size="base" fullWidth soon>
                   Explore Our Solution
                 </Button>
               </motion.div>

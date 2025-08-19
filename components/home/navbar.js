@@ -8,9 +8,10 @@ import Button from "../button/button";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "How it Works", href: "#how" },
   { label: "Skills", href: "#skills" },
+  { label: "How it Works", href: "#how" },
   { label: "Success Stories", href: "#stories" },
+  { label: "Features", href: "#features" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -79,14 +80,17 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
+    <motion.nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 overflow-hidden
         ${
           scrolled
-            ? " bg-white/40 backdrop-blur-xl shadow-md py-4"
-            : "bg-transparen py-3.5"
+            ? "bg-white/40 backdrop-blur-xl shadow-md py-4.5"
+            : "bg-transparent py-3.5"
         }`}
       aria-label="Main navigation"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
@@ -151,7 +155,7 @@ const Navbar = () => {
               Download App
             </motion.a> */}
 
-            <Button variant="gradient" size="md" href={"/"}>
+            <Button soon='true 'variant="gradient" size="md">
               Download App
             </Button>
           </div>
@@ -177,7 +181,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 bg-white z-50 md:hidden"
+            className="fixed inset-0 bg-white z-50 md:hidden top-0"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
@@ -191,7 +195,7 @@ const Navbar = () => {
               }
             }}
           >
-            <div className="flex flex-col h-full">
+            <div className="flex flex-col h-screen bg-white">
               <div className="flex justify-between items-center p-4 border-b">
                 <Link
                   href="/"
@@ -202,7 +206,7 @@ const Navbar = () => {
                     setIsMenuOpen(false);
                   }}
                 >
-                  <div className="w-10s h-10 bg-purple-primary rounded-2xl flex items-center justify-center">
+                  <div className="w-10 h-10 bg-purple-primary rounded-2xl flex items-center justify-center">
                     <svg
                       width="20"
                       height="20"
@@ -274,7 +278,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 };
 
