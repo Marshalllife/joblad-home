@@ -265,7 +265,7 @@
 
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import {
   ArrowRight,
@@ -277,15 +277,34 @@ import {
   CheckCircle,
 } from "lucide-react";
 import Button from "../button/button";
+import useSubscription from "@/hooks/useSubscription";
 
 const CTAWaitlist = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
-  const [email, setEmail] = useState("");
   const [userType, setUserType] = useState(""); // "provider" or "seeker"
-  const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
+
+  const apiKey = process.env.NEXT_PUBLIC_MYDAPPR_API_KEY;
+
+  const {
+    email,
+    setEmail,
+    isSubscribing,
+    isSubscribed,
+    error,
+    emailMessage,
+    handleSubscribe,
+    resetStates,
+    setData,
+  } = useSubscription({
+    category: "product-updates",
+    project: "joblad",
+    source: "website",
+    medium: "cta-waitlist",
+    apiKey,
+    successDuration: 0,
+  });
 
   // Benefits of joining early
   const earlyBenefits = [
@@ -301,33 +320,29 @@ const CTAWaitlist = () => {
     spotsLeft: 985,
   };
 
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setError("");
-
-    // Validate email
-    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-      setError("Please enter a valid email address");
-      return;
+  useEffect(() => {
+    if (userType) {
+      setData({
+        userType: userType,
+        role: userType === "local" ? "provider" : "seeker",
+      });
     }
+  }, [userType]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     // Validate user type
     if (!userType) {
-      setError(
-        "Please select if you want to offer skills or need skilled people"
-      );
+      //   if (!userType) {
+      //     setError(
+      //       "Please select if you want to offer skills or need skilled people"
+      //     );
+      //     return;
+      //   }
       return;
     }
-
-    // Simulate form submission
-    setSubmitting(true);
-
-    // Mock API call
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
-    }, 1500);
+    await handleSubscribe(e);
   };
 
   return (
@@ -383,7 +398,7 @@ const CTAWaitlist = () => {
         </motion.div>
 
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg p-8 md:p-10 border border-gray-100">
-          {!submitted ? (
+          {!isSubscribed ? (
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h3 className="text-2xl font-bold mb-6 font-display">
@@ -453,7 +468,7 @@ const CTAWaitlist = () => {
                       className={`w-full px-4 py-3 border ${
                         error ? "border-red-400" : "border-gray-300"
                       } rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-primary focus:border-purple-primary transition-colors`}
-                      disabled={submitting}
+                      disabled={isSubscribing || isSubscribed}
                     />
                   </div>
 
@@ -465,6 +480,7 @@ const CTAWaitlist = () => {
                       <div className="grid grid-cols-2">
                         <button
                           onClick={() => setUserType("local")}
+                          type="button"
                           className={` px-2.5 md:px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                             userType === "local"
                               ? "bg-white text-purple-primary"
@@ -474,6 +490,7 @@ const CTAWaitlist = () => {
                           I want to offer skills
                         </button>
                         <button
+                          type="button"
                           onClick={() => setUserType("global")}
                           className={`px-2.5 md:px-4  py-3 rounded-xl text-sm font-medium transition-colors ${
                             userType === "global"
@@ -485,8 +502,11 @@ const CTAWaitlist = () => {
                         </button>
                       </div>
                     </div>
-                    {error && (
-                      <p className="bg-error/90 text-red-50 text-center rounded-md py-1 text-sm mt-2">{error}</p>
+                    {(error || (!userType && email)) && (
+                      <p className="bg-error/90 text-red-50 text-center rounded-md py-1 text-sm mt-2">
+                        {error ||
+                          "Please select if you want to offer skills or need skilled people"}
+                      </p>
                     )}
                   </div>
 
@@ -496,9 +516,9 @@ const CTAWaitlist = () => {
                     fullWidth
                     rightIcon={<ArrowRight className="w-5 h-5" />}
                     type="submit"
-                    disabled={submitting}
+                    disabled={isSubscribing || !userType || isSubscribed}
                   >
-                    {submitting ? "Joining..." : "Join Waitlist"}
+                    {isSubscribing ? "Joining..." : "Join Waitlist"}
                   </Button>
 
                   <div className="flex flex-wrap justify-between mt-4 text-sm text-gray-300">
@@ -536,15 +556,19 @@ const CTAWaitlist = () => {
                 You're on the list!
               </h4>
               <p className=" mb-6 max-w-lg mx-auto">
-                Thanks for joining! We'll notify you when Joblad launches. Be
-                sure to check your email for a confirmation message.
+                {emailMessage ||
+                  "Thanks for joining! We'll notify you when Joblad launches. Be sure to check your email for a confirmation message."}
               </p>
               <Button
-              soon
+                soon
                 variant="outline"
                 size="base"
                 className="text-light/90"
                 rightIcon={<ChevronRight className="w-4 h-4 " />}
+                onClick={() => {
+                  resetStates();
+                  setUserType("");
+                }}
               >
                 Refer a Friend for Priority Access
               </Button>

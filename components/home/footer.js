@@ -55,6 +55,7 @@ const Footer = () => {
     { name: "Business Lad", href: "http://localhost:3000/#how" },
     { name: "Earnings Calculator", href: "#calculator" },
     { name: "Mobile App -soon", href: "#" },
+    { name: "Request Pitchdeck", href: "https://mydappr.io/company/request-pitchdeck" },
   ];
 
   // Social media links
